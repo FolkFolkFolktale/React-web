@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import NotFoundPage from "./pages/404";
+import StoryGenerate from "./components/StoryGenrate/StoryGenerate";
+import ContinueStory from "./components/ContinueStory/ContinueStory";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/generate-story" element={<StoryGenerate />}></Route>
+        <Route path="/continue-story/:id" element={<ContinueStory />}></Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
+      </Routes>
     </div>
   );
 }
